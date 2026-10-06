@@ -117,6 +117,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Variables to help django know where to put user media files
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -55,7 +55,7 @@ def place_details(request, place_pk):
 
     #Does this place belong to the current user?
     if place.user != request.user:
-        return HttpResponseForbidden
+        return HttpResponseForbidden()
     
     #is this a GET request (show data + form), or a POST request (update Place object)?
 
@@ -92,4 +92,4 @@ def delete_place(request, place_pk):
         return redirect('place_list')
 
     else:
-        return HttpResponseForbidden
+        return HttpResponseForbidden()

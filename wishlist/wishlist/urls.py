@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+#list containing initial url patterns for the server
+#if no additional url is received, routes to travel_wishlist.urls for further processing
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('travel_wishlist.urls'))
@@ -25,6 +27,7 @@ urlpatterns = [
 from django.conf import settings
 from django.conf.urls.static import static
 
+#adds new url pattern to route media files if in DEBUG mode
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

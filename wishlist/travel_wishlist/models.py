@@ -2,16 +2,16 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.files.storage import default_storage
 
-# Create your models here.
+#Django model that manages interactions between the database the forms
 class Place(models.Model):
     user = models.ForeignKey('auth.User', null=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     visited = models.BooleanField(default=False)
-    #adds new attributes to the Place class
     notes = models.TextField(blank=True, null=True)
     date_visited = models.DateField(blank=True, null=True)
     photo = models.ImageField(upload_to='user_images/', blank=True, null=True)
 
+    # adds additional functionality to this model's save class before calling the super save method
     def save(self, *args, **kwargs):
         old_place = Place.objects.filter(pk=self.pk).first()
         if old_place and old_place.photo:

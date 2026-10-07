@@ -8,6 +8,8 @@ from django.contrib import messages
 #allows this view to be accessed only if the user is logged in
 @login_required
 
+#these views are passed to the path function in urls.py
+#the path function calls these functions, passing an http response object as the argument
 def place_list(request):
 
     if request.method == 'POST':
